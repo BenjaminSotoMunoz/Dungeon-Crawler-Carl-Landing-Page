@@ -1,0 +1,36 @@
+<!-- <?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300"><path fill="#bc1952" fill-opacity="1" d="M0,192L288,64L576,64L864,32L1152,160L1440,224L1440,0L1152,0L864,0L576,0L288,0L0,0Z"></path></svg> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+<!-- 
+  <defs>
+    <pattern
+      id="diagonalLines"
+      patternUnits="userSpaceOnUse"
+      width="40"
+      height="40"
+      patternTransform="rotate(25)"
+    >
+      <line
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="40"
+        stroke="#651430"
+        stroke-width="2"
+        opacity="0.3"
+      />
+    </pattern>
+  </defs> -->
+
+  <path
+    fill="#bc1952"
+    d="M0,192L288,64L576,64L864,32L1152,160L1440,224L1440,0L1152,0L864,0L576,0L288,0L0,0Z"
+  />
+
+  <!-- overlay pattern -->
+  <path
+    fill="url(#diagonalLines)"
+    d="M0,192L288,64L576,64L864,32L1152,160L1440,224L1440,0L1152,0L864,0L576,0L288,0L0,0Z"
+  />
+
+</svg>

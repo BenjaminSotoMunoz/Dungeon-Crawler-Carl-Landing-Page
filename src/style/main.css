@@ -1,0 +1,186 @@
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form inherit styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Prevent text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Buttons */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Textarea resize */
+textarea {
+  resize: vertical;
+}
+
+/* Root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.title-section {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 3vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  color: #f2c14d;
+  letter-spacing: 3px;
+  line-height: 0.85;
+
+  text-shadow:
+  4px 4px 0 #690023,
+  8px 8px 0 rgba(0, 0, 0, 0.4);
+
+  transform: skew(-5deg);
+  text-align: center;
+  filter: contrast(1.15) saturate(1.2);
+}
+
+.border {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+}
+
+.border-top-left {
+  top: 0;
+  left: 0;
+  border-top: 1px solid #bc1952;
+  border-left: 1px solid #bc1952;
+}
+
+.border-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid #bc1952;
+  border-right: 1px solid #bc1952;
+}
+
+.border-top-right {
+  top: 0;
+  right: 0;
+  border-top: 1px solid #bc1952;
+  border-right: 1px solid #bc1952;
+}
+
+.border-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid #bc1952;
+  border-left: 1px solid #bc1952;
+}
+
+.text-info {
+  color: #f2c14d;
+  font-weight: 600;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+}
+
+.btn-buy {
+  position: relative;
+
+  height: 48px;
+  width: min(200px, 100%);
+  background: #bc1952;
+
+  border: none;
+
+  color: #f2c14d;
+
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: #690023 2px 2px 0px;
+
+  cursor: pointer;
+
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    0 100%
+  );
+
+  box-shadow: inset -3px -3px 0px 0px rgba(0, 0, 0, .4), 2px 4px 0 rgb(16, 15, 15);
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}

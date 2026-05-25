@@ -1,0 +1,284 @@
+---
+const books = [
+  { id: 1, title: "Book 1", col: 1 },
+  { id: 2, title: "Book 2", col: 2, parent: 1 },
+  { id: 3, title: "Book 3", col: 3, parent: 2 },
+  { id: 4, title: "Book 4", col: 2, parent: 1 },
+];
+---
+
+<section class="books">
+  <div class="books-container">
+    <div class="book-info">
+      <div class="book-info-img">
+        <img src="/src/assets/book7-3d.png" alt="" />
+      </div>
+      <div class="book-info-content">
+        <h2 class="title-section">A Parade Of Horribles</h2>
+        <p class="text-info">
+          It’s off to the races in the explosive 8th book in the Dungeon Crawler
+          Carl series!
+        </p>
+        <p>
+          As chaos and mass panic spread outside the dungeon in the wake of
+          Faction Wars, Carl and Donut find themselves on the tenth floor, where
+          they’re forced to compete in a surprisingly normal set of tasks. Well,
+          normal for the dungeon. Races. Get from point A to point B, and don’t
+          come in last. After each race, they pick an upgrade for their vehicle
+          and the track gets more challenging. It all seems a little too normal,
+          a little too simple.
+        </p>
+        <div class="links">
+          <button class="btn-buy"
+            >EBOOK
+            <span class="btn-buy-corner"></span>
+          </button>
+          <button class="btn-buy">BOOK</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="books-list">
+      <h2 class="title-section">BOOKS</h2>
+      <div class="book-cards">
+        <div class="book-item active">
+          <div class="book-img">
+            <img src="/src/assets/book.jpg" alt="" />
+          </div>
+          <div class="book-desc">
+            <p>First Book, Floors 1-2</p>
+            <h4>Dungeon Crawler Carl</h4>
+          </div>
+          <span class="border border-top-left"></span>
+          <span class="border border-bottom-left"></span>
+          <span class="border border-top-right"></span>
+          <span class="border border-bottom-right"></span>
+        </div>
+        <div class="book-item active">
+          <div class="book-img">
+            <img src="/src/assets/book2.jpg" alt="" />
+          </div>
+          <div class="book-desc">
+            <p>Second Book, Floor 3</p>
+            <h4>Carl's Doomsday Scenario</h4>
+          </div>
+          <span class="border border-top-left"></span>
+          <span class="border border-bottom-left"></span>
+          <span class="border border-top-right"></span>
+          <span class="border border-bottom-right"></span>
+        </div>
+        <div class="book-item active">
+          <div class="book-img">
+            <img src="/src/assets/book3.jpg" alt="" />
+          </div>
+          <div class="book-desc">
+            <p>First Book, Floor 4</p>
+            <h4>The Dungeon Anarchist's Cook Book</h4>
+          </div>
+          <span class="border border-top-left"></span>
+          <span class="border border-bottom-left"></span>
+          <span class="border border-top-right"></span>
+          <span class="border border-bottom-right"></span>
+        </div>
+        <div class="book-item active">
+          <div class="book-img">
+            <img src="/src/assets/book4.jpg" alt="" />
+          </div>
+          <div class="book-desc">
+            <p>First Book, Floor 5</p>
+            <h4>The Gate Of The Feral Gods</h4>
+          </div>
+          <span class="border border-top-left"></span>
+          <span class="border border-bottom-left"></span>
+          <span class="border border-top-right"></span>
+          <span class="border border-bottom-right"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .books {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .books::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background-image: url("src/assets/wave-top2.svg");
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: cover;
+      filter: drop-shadow(0 2px 10px rgb(1, 1, 1));
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .books::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background-image: url("src/assets/wave2.svg");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      filter: drop-shadow(0 2px 10px rgb(1, 1, 1));
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .books-container {
+      width: 1600px;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* IZQUIERDA */
+    .books-list {
+      width: 600px;
+      background: #26262656;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow-y: auto;
+    }
+
+    .book-cards {
+      margin-top: 1.5rem;
+    }
+
+    /* ITEMS */
+    .book-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      height: 100px;
+      /* background: #1c1c1c; */
+      color: #eae0c2;
+      cursor: pointer;
+      width: 90%;
+      transition: 0.2s;
+    }
+
+    .book-img {
+      width: 100px;
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .book-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .book-desc p {
+      font-size: 1.2rem;
+      color: #9b9582;
+    }
+
+    .book-desc h4 {
+      font-size: 1.5rem;
+    }
+
+    .book-item:hover {
+      transform: translateX(4px);
+    }
+
+    /* .book-item.active {
+      border-left: 3px solid #facc15;
+      background: #222;
+    } */
+
+    /* DERECHA */
+    .book-info {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      height: 80%;
+      width: 100%;
+      border-radius: 12px;
+      color: #ffffff;
+      padding: 30px;
+    }
+
+    .book-info-img {
+      flex: 2;
+      height: 90%;
+    }
+
+    .book-info-img img {
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.8;
+      filter: drop-shadow(0 2px 6px rgb(209, 204, 204));
+    }
+
+    .book-info-content {
+      flex: 3;
+      height: 90%;
+      gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    .book-info-content p {
+      font-family: "Inter", sans-serif;
+
+      font-size: 1.08rem;
+      line-height: 1.6;
+
+      color: rgba(255, 255, 255, 0.85);
+
+      max-width: 65ch;
+
+      text-wrap: pretty;
+    }
+
+    .book-info::after {
+      position: absolute;
+      content: "";
+      inset: 0;
+      background: #420f3c56;
+      background-image: url("/src/assets/dots-50.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(79, 76, 76, 0.518);
+      z-index: -1;
+      /* filter: blur(5px); */
+    }
+
+    .book-info::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      background-image: url("/src/assets/Book-8-Ace-cover-scaled.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -10;
+      opacity: 0.1;
+    }
+  </style>
+</section>

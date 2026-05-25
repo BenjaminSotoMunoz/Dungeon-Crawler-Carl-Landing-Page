@@ -1,0 +1,733 @@
+---
+const characters = [
+  {
+    id: 0,
+    name: "Donut",
+    img: "/public/character/donut-character2.png",
+    selection_img: "/public/character-selection/donut.png",
+    description:
+      "Princess Donut is the fan-favorite, royal-acting tortoiseshell Persian cat from the hit LitRPG series Dungeon Crawler Carl by Matt Dinniman. She is sapient, speaks with a sultry yet pompous voice, and possesses a massive ego, constantly referring to herself as 'the queen' or leader of the team.",
+    crawler_info: {
+      crawler_number: "4,119",
+      crawler_id: "Princess Donut",
+      origin: "Seattle, WA",
+      job: "Cat Lady",
+    },
+    quotes: [
+      "You tried to kill Katia you fucking bitch!",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "4",
+      height: "???",
+      weight: "???",
+      hair: "Black, Beige, and White",
+    },
+  },
+  {
+    id: 1,
+    name: "Carl",
+    img: "/public/character/carl.png",
+    selection_img: "/public/character-selection/carl.png",
+    description:
+      "Carl is the titular protagonist of Dungeon Crawler Carl. A former coast guardsman, Carl and his ex-girlfriend's cat are now fan-favorite crawlers on the Syndicate gameshow, Dungeon Crawler World: Earth.",
+    crawler_info: {
+      crawler_number: "4.133",
+      crawler_id: "Carl",
+      origin: "Seattle, WA",
+      job: "Marine Technician",
+    },
+    quotes: [
+      "asdYou tried to kill Katia you fucking bitch!",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "27",
+      height: "6'3 (190.5cm)",
+      weight: "230 lbs (104.33 kg)",
+      hair: "Brown",
+    },
+  },
+  {
+    id: 2,
+    name: "Mordekai",
+    img: "/public/character/mordekai.png",
+    selection_img: "/public/character-selection/mordekai.png",
+    description:
+      "Mordecai is Carl and Donut's Game Guide in the dungeon. He is an indentured employee of Borant Corporation, tasked with helping the corporation run crawls. Originally an avian race called a Skyfowl, Mordecai chose Changeling as his race when he was a crawler.",
+    crawler_info: {
+      crawler_number: "N/A",
+      crawler_id: "Mordekai",
+      origin: "Skyfowl Planet",
+      job: "Game Guide",
+    },
+    quotes: [
+      "You tried to kill Katia you fucking bitch!",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "???",
+      height: "???",
+      weight: "???",
+      hair: "???",
+    },
+  },
+  {
+    id: 3,
+    name: "Beatrice",
+    img: "/public/character/beatriz.png",
+    selection_img: "/public/character-selection/beatriz.png",
+    description:
+      "Beatrice begins as Carl's carefree ex-girlfriend and Donut's devoted owner, a symbol of the pre-dungeon normalcy shattered by the crawl, her absence haunting Carl amid the apocalypse. ",
+    crawler_info: {
+      crawler_number: "N/A",
+      crawler_id: "N/A",
+      origin: "Seattle, WA",
+      job: "Cat Show Person, MLM Boss Babe",
+    },
+    quotes: [
+      "You don’t even like her, Carl. Why do you care?",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "???",
+      height: "???",
+      weight: "???",
+      hair: "???",
+    },
+  },
+  {
+    id: 4,
+    name: "Mongo",
+    img: "/public/character/mongo.png",
+    selection_img: "/public/character-selection/mongo.png",
+    description:
+      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
+    crawler_info: {
+      crawler_number: "N/A",
+      crawler_id: "Mongo",
+      origin: "Second Floor",
+      job: "Cat Show Person, MLM Boss Babe",
+    },
+    quotes: [
+      "You don’t even like her, Carl. Why do you care?",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "???",
+      height: "???",
+      weight: "???",
+      hair: "Pink",
+    },
+  },
+  {
+    id: 5,
+    name: "Imani",
+    img: "/public/character/imani.png",
+    selection_img: "/public/character-selection/imani.png",
+    description:
+      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
+    crawler_info: {
+      crawler_number: "N/A",
+      crawler_id: "Mongo",
+      origin: "Second Floor",
+      job: "Cat Show Person, MLM Boss Babe",
+    },
+    quotes: [
+      "You don’t even like her, Carl. Why do you care?",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "???",
+      height: "???",
+      weight: "???",
+      hair: "Pink",
+    },
+  },
+  {
+    id: 6,
+    name: "Brandon",
+    img: "/public/character/brandon.png",
+    selection_img: "/public/character-selection/brandon.png",
+    description:
+      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
+    crawler_info: {
+      crawler_number: "N/A",
+      crawler_id: "Mongo",
+      origin: "Second Floor",
+      job: "Cat Show Person, MLM Boss Babe",
+    },
+    quotes: [
+      "You don’t even like her, Carl. Why do you care?",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "???",
+      height: "???",
+      weight: "???",
+      hair: "Pink",
+    },
+  },
+  {
+    id: 7,
+    name: "Maggie My",
+    img: "/public/character/maggie.png",
+    selection_img: "/public/character-selection/maggie.png",
+    description:
+      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
+    crawler_info: {
+      crawler_number: "N/A",
+      crawler_id: "Mongo",
+      origin: "Second Floor",
+      job: "Cat Show Person, MLM Boss Babe",
+    },
+    quotes: [
+      "You don’t even like her, Carl. Why do you care?",
+      "DIE MOTHERFUCKERS DIE!!",
+    ],
+    physical_traits: {
+      age: "???",
+      height: "???",
+      weight: "???",
+      hair: "Pink",
+    },
+  },
+];
+
+const crawlerInfo = [
+  { key: "crawler_number", label: "Crawler Number" },
+  { key: "crawler_id", label: "Crawler ID" },
+  { key: "origin", label: "Origin" },
+  { key: "job", label: "Job" },
+];
+
+const physicalTraits = [
+  { key: "age", label: "Age" },
+  { key: "height", label: "Height" },
+  { key: "weight", label: "Weight" },
+  { key: "hair", label: "Hair" },
+];
+
+const DESKTOP_ROW_PATTERN = [4, 3, 2];
+// aquí guardaremos personajes con posición
+const positionedCharacters: any[] = [];
+let currentIndex = 0;
+
+DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
+  // recorrer columnas de esa fila
+  for (let col = 1; col <= cols; col++) {
+    // si ya no quedan personajes, parar
+    if (currentIndex >= characters.length) break;
+
+    // guardar personaje con row y col
+    positionedCharacters.push({
+      ...characters[currentIndex],
+
+      row: rowIndex + 1,
+
+      // escalera invertida
+      col: col,
+    });
+
+    // siguiente personaje
+    currentIndex++;
+  }
+});
+console.log(positionedCharacters);
+---
+
+<section class="character">
+  <div class="character-container">
+    <div class="selection-character">
+      <div class="selection-title">
+        <h2 class="title-section" style="text-align: start;">
+          Character Selection
+        </h2>
+      </div>
+      <div class="character-grid-selection">
+        {
+          positionedCharacters.map((character) => {
+            return (
+              <div
+                class="character-card"
+                style={`grid-column: ${character.col}; grid-row: ${character.row};`}
+                data-id={character.id}
+              >
+                <img src={character.selection_img} alt={character.name} />
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div class="info-character">
+      <div class="character-main">
+        <h2 class="title-section">Carl</h2>
+        <div class="character-bg">
+          <img src="/public/character/carl.png" alt="" />
+        </div>
+        <div class="stat-container">
+          <div class="stat-card" id="crawler-info">
+            <span class="stat-title"> CRAWLER INFO </span>
+            {
+              crawlerInfo.map((info, index) => {
+                return (
+                  <div class="stat-value">
+                    <>
+                      <span>{info.label}</span>
+                      <p data-key={info.key}>
+                        :{" "}
+                        {Object.values(characters[0].crawler_info ?? {})[index]}
+                      </p>
+                    </>
+                  </div>
+                );
+              })
+            }
+          </div>
+
+          <div class="stat-card" id="physical-traits">
+            <span class="stat-title"> PHYSICAL TRAITS </span>
+            {
+              physicalTraits.map((trait, index) => {
+                return (
+                  <div class="stat-value">
+                    <>
+                      <span>{trait.label}</span>
+                      <p data-key={trait.key}>
+                        :{" "}
+                        {
+                          Object.values(characters[0].physical_traits ?? {})[
+                            index
+                          ]
+                        }
+                      </p>
+                    </>
+                  </div>
+                );
+              })
+            }
+          </div>
+
+          <div class="stat-card">
+            <span class="stat-title"> QUOTES </span>
+            {
+              characters[0].quotes?.map((quote) => {
+                return <div class="character-quote">"{quote}"</div>;
+              })
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="character-desc">
+        <h3>Character Description</h3>
+        <p>
+          Carl is the titular protagonist of Dungeon Crawler Carl. A former
+          coast guardsman, Carl and his ex-girlfriend's cat are now fan-favorite
+          crawlers on the Syndicate gameshow, Dungeon Crawler World: Earth.
+        </p>
+      </div>
+    </div>
+    <style>
+      .character {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .character-container {
+        position: relative;
+        width: min(1600px, 100%);
+        padding: 0 20px;
+        box-sizing: border-box;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .selection-character {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        height: 100%;
+        width: 100%;
+        gap: 4rem;
+      }
+
+      .info-character {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+      }
+
+      .character-main {
+        flex: 4;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .character::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: #bc1952;
+
+        clip-path: polygon(0 0, 60% 0, 35% 100%, 0 100%);
+        z-index: -1;
+      }
+
+      .character-bg {
+        position: relative;
+        height: 500px;
+        display: flex;
+        width: 300px;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .character-bg::before {
+        position: absolute;
+        content: "";
+        background-color: #96053d;
+        height: 150%;
+        width: 150px;
+        overflow: hidden;
+        transform: rotate(50deg);
+        /* width: 110%;
+      height: 110%; */
+        /* Set the size of each grid square */
+        background-size: 25px 25px;
+
+        /* Draw vertical and horizontal lines */
+        background-image: radial-gradient(circle, #000000 2px, transparent 1px);
+        /* z-index: -1; */
+      }
+
+      .character-bg img {
+        filter: drop-shadow(10px 2px 0px #96053d);
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: contain;
+
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease;
+
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .stat-container {
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+        width: 100%;
+        height: 90%;
+        margin-top: 2rem;
+      }
+
+      .stat-card {
+        background: rgb(17, 15, 15);
+        font-family: "Inter", sans-serif;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0px 0px 18px 18px;
+        padding: 1rem 1.2rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 13px 3px rgb(4 4 4 / 99%);
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+
+        overflow: hidden;
+      }
+
+      .stat-card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .stat-card:nth-child(2) {
+        grid-column: 3;
+        grid-row: 2;
+      }
+      .stat-card:nth-child(3) {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      .stat-card:nth-child(4) {
+        grid-column: 3;
+        grid-row: 1;
+      }
+
+      .stat-title {
+        display: block;
+
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        color: rgba(255, 255, 255, 0.55);
+
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-value {
+        font-size: 0.9rem;
+        font-weight: 500;
+
+        color: #f2f2f2;
+      }
+
+      .stat-value span {
+        font-weight: 600;
+        color: rgba(244, 30, 94, 0.995);
+      }
+
+      .stat-value p {
+        display: inline;
+      }
+
+      .stat-card::before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 2px;
+
+        background: linear-gradient(to right, #f2c14d, #d64d8b);
+      }
+
+      .quote-text {
+        color: #f2f2f2;
+        transform: skew(-9deg);
+      }
+
+      .character-quote {
+        position: relative;
+
+        width: fit-content;
+        margin-top: 0.75rem;
+        font-size: 1rem;
+        font-style: italic;
+
+        color: rgba(255, 255, 255, 0.75);
+
+        padding-left: 1rem;
+
+        border-left: 3px solid #e22356;
+      }
+
+      .character-desc {
+        flex: 1;
+        font-family: "Inter", sans-serif;
+        font-size: 1.1rem;
+        background-color: #50041d4e;
+        color: #efe8e8;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(99, 96, 96, 0.244);
+        padding: 1rem;
+        border-radius: 14px;
+      }
+
+      .character-desc p {
+      }
+
+      .character-desc h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+        color: #e22356;
+      }
+
+      .character-grid-selection {
+        display: grid;
+        grid-template-columns: repeat(4, 160px);
+        grid-template-rows: repeat(3, 160px);
+        gap: 0.5rem;
+      }
+
+      .character-card {
+        position: relative;
+        background-color: #141313f2;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        box-shadow: 2px 4px 0px 0px rgb(16, 15, 15);
+        z-index: 10;
+      }
+
+      /* .character-card:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .character-card:nth-child(2) {
+        grid-column: 3;
+        grid-row: 2;
+      }
+      .character-card:nth-child(3) {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      .character-card:nth-child(4) {
+        grid-column: 3;
+        grid-row: 1;
+      }
+      .character-card:nth-child(5) {
+        grid-column: 2;
+        grid-row: 3;
+      } */
+
+      .character-card::before {
+        position: absolute;
+        content: "";
+
+        inset: 0;
+        width: 100%;
+        height: 150%;
+
+        background-image:
+          linear-gradient(to right, #ffffff36 1px, transparent 1px),
+          linear-gradient(to bottom, #ffffff47 1px, transparent 1px);
+
+        background-size: 50px 50px;
+        background-position: center;
+
+        transform-origin: center center;
+        transform: perspective(700px) rotateX(70deg);
+
+        z-index: -1;
+      }
+
+      .character-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .character-desc p,
+      .character-main .title-section {
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .character-bg img.changing {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+
+      .character-main .title-section.text-changing,
+      .character-desc p.text-changing {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      /* 
+    .stat-card:nth-child(even) {
+      transform: rotate(1deg);
+    }
+
+    .stat-card:nth-child(odd) {
+      transform: rotate(-1deg);
+    } */
+    </style>
+  </div>
+</section>
+<script define:vars={{ characters, crawlerInfo, physicalTraits }}>
+  //   console.log(characters);
+
+  const titleSection = document.querySelector(".character-main .title-section");
+  const characterBg = document.querySelector(".character-bg img");
+  const characterDesc = document.querySelector(".character-desc p");
+  //   const characterInfo = document.querySelectorAll("#crawler-info");
+
+  const characterGridSelection = document.querySelector(
+    ".character-grid-selection",
+  );
+  console.log(characterGridSelection);
+  characterGridSelection.addEventListener("click", (e) => {
+    if (e.target.closest(".character-card")) {
+      const id = e.target.dataset.id;
+      const character = characters[id];
+
+      document.querySelectorAll("#crawler-info p[data-key]").forEach((stat) => {
+        stat.textContent = characters[id].crawler_info[stat.dataset.key];
+        console.log(characters[id].crawler_info[stat.dataset.key]);
+      });
+
+      document
+        .querySelectorAll("#physical-traits p[data-key]")
+        .forEach((stat) => {
+          stat.textContent = characters[id].physical_traits[stat.dataset.key];
+          console.log(characters[id].physical_traits[stat.dataset.key]);
+        });
+
+      document.querySelectorAll(".character-quote").forEach((quote, index) => {
+        quote.textContent = '"' + characters[id].quotes[index] + '"';
+        console.log(characters[id].quotes[index]);
+      });
+
+      characterBg.classList.add("changing");
+      titleSection.classList.add("text-changing");
+      characterDesc.classList.add("text-changing");
+
+      setTimeout(() => {
+        characterBg.src = character.img;
+
+        titleSection.textContent = character.name;
+
+        characterDesc.textContent = character.description;
+
+        characterBg.classList.remove("changing");
+        titleSection.classList.remove("text-changing");
+        characterDesc.classList.remove("text-changing");
+      }, 250);
+    }
+  });
+
+  characterBg.src = characters[1].img;
+
+  console.log(characterBg);
+</script>

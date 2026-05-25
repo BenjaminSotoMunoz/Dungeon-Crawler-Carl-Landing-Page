@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
+
+  <!-- <defs>
+    <pattern
+      id="diagonalPattern"
+      patternUnits="userSpaceOnUse"
+      width="40"
+      height="40"
+      patternTransform="rotate(25)"
+    >
+      <line
+        x1="0"
+        y1="0"
+        x2="0"
+        y2="40"
+        stroke="#651430"
+        stroke-width="2"
+        opacity="0.3"
+      />
+    </pattern>
+  </defs> -->
+
+  <!-- shape rosa -->
+  <path
+    fill="#bc1952"
+    d="M0,160L360,224L720,224L1080,256L1440,32L1440,320L1080,320L720,320L360,320L0,320Z"
+  />
+
+  <!-- overlay de líneas SOLO dentro del shape -->
+  <path
+    fill="url(#diagonalPattern)"
+    d="M0,160L360,224L720,224L1080,256L1440,32L1440,320L1080,320L720,320L360,320L0,320Z"
+  />
+
+</svg>
