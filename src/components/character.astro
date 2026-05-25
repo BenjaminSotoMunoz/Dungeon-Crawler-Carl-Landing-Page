@@ -1,212 +1,5 @@
 ---
-const characters = [
-  {
-    id: 0,
-    name: "Donut",
-    img: "/public/character/donut-character2.png",
-    selection_img: "/public/character-selection/donut.png",
-    description:
-      "Princess Donut is the fan-favorite, royal-acting tortoiseshell Persian cat from the hit LitRPG series Dungeon Crawler Carl by Matt Dinniman. She is sapient, speaks with a sultry yet pompous voice, and possesses a massive ego, constantly referring to herself as 'the queen' or leader of the team.",
-    crawler_info: {
-      crawler_number: "4,119",
-      crawler_id: "Princess Donut",
-      origin: "Seattle, WA",
-      job: "Cat Lady",
-    },
-    quotes: [
-      "You tried to kill Katia you fucking bitch!",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "4",
-      height: "???",
-      weight: "???",
-      hair: "Black, Beige, and White",
-    },
-  },
-  {
-    id: 1,
-    name: "Carl",
-    img: "/public/character/carl.png",
-    selection_img: "/public/character-selection/carl.png",
-    description:
-      "Carl is the titular protagonist of Dungeon Crawler Carl. A former coast guardsman, Carl and his ex-girlfriend's cat are now fan-favorite crawlers on the Syndicate gameshow, Dungeon Crawler World: Earth.",
-    crawler_info: {
-      crawler_number: "4.133",
-      crawler_id: "Carl",
-      origin: "Seattle, WA",
-      job: "Marine Technician",
-    },
-    quotes: [
-      "asdYou tried to kill Katia you fucking bitch!",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "27",
-      height: "6'3 (190.5cm)",
-      weight: "230 lbs (104.33 kg)",
-      hair: "Brown",
-    },
-  },
-  {
-    id: 2,
-    name: "Mordekai",
-    img: "/public/character/mordekai.png",
-    selection_img: "/public/character-selection/mordekai.png",
-    description:
-      "Mordecai is Carl and Donut's Game Guide in the dungeon. He is an indentured employee of Borant Corporation, tasked with helping the corporation run crawls. Originally an avian race called a Skyfowl, Mordecai chose Changeling as his race when he was a crawler.",
-    crawler_info: {
-      crawler_number: "N/A",
-      crawler_id: "Mordekai",
-      origin: "Skyfowl Planet",
-      job: "Game Guide",
-    },
-    quotes: [
-      "You tried to kill Katia you fucking bitch!",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "???",
-      height: "???",
-      weight: "???",
-      hair: "???",
-    },
-  },
-  {
-    id: 3,
-    name: "Beatrice",
-    img: "/public/character/beatriz.png",
-    selection_img: "/public/character-selection/beatriz.png",
-    description:
-      "Beatrice begins as Carl's carefree ex-girlfriend and Donut's devoted owner, a symbol of the pre-dungeon normalcy shattered by the crawl, her absence haunting Carl amid the apocalypse. ",
-    crawler_info: {
-      crawler_number: "N/A",
-      crawler_id: "N/A",
-      origin: "Seattle, WA",
-      job: "Cat Show Person, MLM Boss Babe",
-    },
-    quotes: [
-      "You don’t even like her, Carl. Why do you care?",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "???",
-      height: "???",
-      weight: "???",
-      hair: "???",
-    },
-  },
-  {
-    id: 4,
-    name: "Mongo",
-    img: "/public/character/mongo.png",
-    selection_img: "/public/character-selection/mongo.png",
-    description:
-      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
-    crawler_info: {
-      crawler_number: "N/A",
-      crawler_id: "Mongo",
-      origin: "Second Floor",
-      job: "Cat Show Person, MLM Boss Babe",
-    },
-    quotes: [
-      "You don’t even like her, Carl. Why do you care?",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "???",
-      height: "???",
-      weight: "???",
-      hair: "Pink",
-    },
-  },
-  {
-    id: 5,
-    name: "Imani",
-    img: "/public/character/imani.png",
-    selection_img: "/public/character-selection/imani.png",
-    description:
-      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
-    crawler_info: {
-      crawler_number: "N/A",
-      crawler_id: "Mongo",
-      origin: "Second Floor",
-      job: "Cat Show Person, MLM Boss Babe",
-    },
-    quotes: [
-      "You don’t even like her, Carl. Why do you care?",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "???",
-      height: "???",
-      weight: "???",
-      hair: "Pink",
-    },
-  },
-  {
-    id: 6,
-    name: "Brandon",
-    img: "/public/character/brandon.png",
-    selection_img: "/public/character-selection/brandon.png",
-    description:
-      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
-    crawler_info: {
-      crawler_number: "N/A",
-      crawler_id: "Mongo",
-      origin: "Second Floor",
-      job: "Cat Show Person, MLM Boss Babe",
-    },
-    quotes: [
-      "You don’t even like her, Carl. Why do you care?",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "???",
-      height: "???",
-      weight: "???",
-      hair: "Pink",
-    },
-  },
-  {
-    id: 7,
-    name: "Maggie My",
-    img: "/public/character/maggie.png",
-    selection_img: "/public/character-selection/maggie.png",
-    description:
-      "Mongo is a highly intelligent, rapidly growing Velociraptor (specifically a Deinonychus-sized dinosaur) that becomes the beloved pet of Princess Donut",
-    crawler_info: {
-      crawler_number: "N/A",
-      crawler_id: "Mongo",
-      origin: "Second Floor",
-      job: "Cat Show Person, MLM Boss Babe",
-    },
-    quotes: [
-      "You don’t even like her, Carl. Why do you care?",
-      "DIE MOTHERFUCKERS DIE!!",
-    ],
-    physical_traits: {
-      age: "???",
-      height: "???",
-      weight: "???",
-      hair: "Pink",
-    },
-  },
-];
-
-const crawlerInfo = [
-  { key: "crawler_number", label: "Crawler Number" },
-  { key: "crawler_id", label: "Crawler ID" },
-  { key: "origin", label: "Origin" },
-  { key: "job", label: "Job" },
-];
-
-const physicalTraits = [
-  { key: "age", label: "Age" },
-  { key: "height", label: "Height" },
-  { key: "weight", label: "Weight" },
-  { key: "hair", label: "Hair" },
-];
+import { characters, crawlerInfo, physicalTraits } from "../const/characters";
 
 const DESKTOP_ROW_PATTERN = [4, 3, 2];
 // aquí guardaremos personajes con posición
@@ -266,7 +59,7 @@ console.log(positionedCharacters);
         <div class="character-bg">
           <img src="/public/character/carl.png" alt="" />
         </div>
-        <div class="stat-container">
+        <!-- <div class="stat-container">
           <div class="stat-card" id="crawler-info">
             <span class="stat-title"> CRAWLER INFO </span>
             {
@@ -317,7 +110,7 @@ console.log(positionedCharacters);
               })
             }
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="character-desc">
@@ -545,7 +338,7 @@ console.log(positionedCharacters);
       }
 
       .character-desc {
-        flex: 1;
+        /* flex: 1; */
         font-family: "Inter", sans-serif;
         font-size: 1.1rem;
         background-color: #50041d4e;
@@ -570,8 +363,8 @@ console.log(positionedCharacters);
 
       .character-grid-selection {
         display: grid;
-        grid-template-columns: repeat(4, 160px);
-        grid-template-rows: repeat(3, 160px);
+        grid-template-columns: repeat(4, 170px);
+        grid-template-rows: repeat(3, 200px);
         gap: 0.5rem;
       }
 
