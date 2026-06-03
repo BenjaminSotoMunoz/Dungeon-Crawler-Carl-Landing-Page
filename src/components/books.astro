@@ -522,7 +522,6 @@ import { booksContet } from "../const/books";
 
       const bookId = card.dataset.id;
       const book = booksContet.find((book) => book.id == bookId);
-      console.log(book);
       bookContent.querySelector("h2").textContent = book.title;
       bookContent.querySelector(".text-info").textContent = book.introduction;
       bookContent.querySelector(".text-description").textContent =

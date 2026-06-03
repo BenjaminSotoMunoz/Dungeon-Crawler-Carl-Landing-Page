@@ -26,7 +26,6 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
     currentIndex++;
   }
 });
-console.log(positionedCharacters);
 ---
 
 <section class="character">
@@ -857,13 +856,10 @@ console.log(positionedCharacters);
     const characterGridSelection = document.querySelector(
       ".character-grid-selection",
     );
-    console.log(titleSection);
     characterGridSelection.addEventListener("click", (e) => {
       if (e.target.closest(".character-card")) {
         const id = e.target.dataset.id;
         const character = characters[id];
-        console.log(characters);
-        console.log("personaje", character);
         characterBg.classList.add("changing");
         characterOrigin.classList.add("text-changing");
         characterJob.classList.add("text-changing");
@@ -872,7 +868,6 @@ console.log(positionedCharacters);
 
         e.target.classList.add("active");
         if (active) {
-          console.log(active);
           active.classList.remove("active");
         }
         active = e.target;
