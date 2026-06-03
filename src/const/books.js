@@ -2,8 +2,8 @@ export const booksContet = [
   {
     id: 1,
     title: "Dungeon Crawler Carl",
-    image: "/books/books/book.jpg",
-    imageCover: "/books/books/book1-3d.png",
+    image: "/books/book.jpg",
+    imageCover: "/books/book1-3d.png",
     bookInfo: "First book, floor 1-2",
     introduction:
       "An alien invasion forces Carl and his cat Donut into a deadly underground game show. Using a missile launcher and charisma, they survive the first levels and become instant celebrity stars.",
