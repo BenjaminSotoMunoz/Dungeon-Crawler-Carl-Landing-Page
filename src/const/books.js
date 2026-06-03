@@ -2,8 +2,8 @@ export const booksContet = [
   {
     id: 1,
     title: "Dungeon Crawler Carl",
-    image: "/books/book.jpg",
-    imageCover: "/books/book1-3d.png",
+    image: "/books/books/book.jpg",
+    imageCover: "/books/books/book1-3d.png",
     bookInfo: "First book, floor 1-2",
     introduction:
       "An alien invasion forces Carl and his cat Donut into a deadly underground game show. Using a missile launcher and charisma, they survive the first levels and become instant celebrity stars.",
@@ -15,8 +15,8 @@ export const booksContet = [
   {
     id: 2,
     title: "Carl's Doomsday Scenario",
-    image: "/books/book2.jpg",
-    imageCover: "/book2-3d.png",
+    image: "/books/books/book2.jpg",
+    imageCover: "/books/book2-3d.png",
     bookInfo: "Second book, floor 3",
     introduction:
       "Carl and Donut conquer the castle-themed 3rd floor while dealing with corporate sponsorship plots. They protect their allies and defeat a massive, multi-headed boss to survive.",
