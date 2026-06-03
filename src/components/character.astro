@@ -1,7 +1,7 @@
 ---
 import { characters, crawlerInfo, physicalTraits } from "../const/characters";
 
-const DESKTOP_ROW_PATTERN = [4, 3, 2];
+const DESKTOP_ROW_PATTERN = [3, 3, 3];
 // aquí guardaremos personajes con posición
 const positionedCharacters: any[] = [];
 let currentIndex = 0;
@@ -30,11 +30,12 @@ console.log(positionedCharacters);
 ---
 
 <section class="character">
-  <div class="character-container">
+  <div class="character-container section">
     <div class="selection-character">
       <div class="selection-title">
-        <h2 class="title-section" style="text-align: start;">
-          Character Selection
+        <h2 style="text-align: start;">
+          Character
+          <span>SELECTION</span>
         </h2>
       </div>
       <div class="character-grid-selection">
@@ -46,7 +47,26 @@ console.log(positionedCharacters);
                 style={`grid-column: ${character.col}; grid-row: ${character.row};`}
                 data-id={character.id}
               >
-                <img src={character.selection_img} alt={character.name} />
+                <div class="img-wrap">
+                  <picture>
+                    <source
+                      srcset={`${character.selection_img}.avif`}
+                      type="image/avif"
+                    />
+                    <source
+                      srcset={`${character.selection_img}.webp`}
+                      type="image/webp"
+                    />
+                    <img
+                      src={`${character.selection_img}.png`}
+                      alt={character.name}
+                    />
+                  </picture>
+                </div>
+
+                <div class="character-name">
+                  <span>{character.name}</span>
+                </div>
               </div>
             );
           })
@@ -55,488 +75,826 @@ console.log(positionedCharacters);
     </div>
     <div class="info-character">
       <div class="character-main">
-        <h2 class="title-section">Carl</h2>
         <div class="character-bg">
-          <img src="/public/character/carl.png" alt="" />
+          <div class="character-stats" id="crawler_stats">
+            <div class="character-info-name">
+              <h2 class="section-title" data-key="name_character">Carl</h2>
+              <span data-key="aliase_character">Guardian Real</span>
+            </div>
+            <div class="character-info">
+              <div class="character-origin" id="origin">
+                <div class="icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 512 512"
+                  >
+                    <path d="M0 0h512v512H0z" fill="none"></path>
+                    <path
+                      fill="#e2076e"
+                      d="M336.6 156.5c1.3 1.1 2.7 2.2 3.9 3.3c9.3 8.2 23 10.5 33.4 3.6l67.6-45.1c11.4-7.6 14.2-23.2 5.1-33.4c-16.6-18.3-35.7-34.3-56.9-47.3c-11.9-7.3-26.9-1.4-32.1 11.6l-30.5 76.2c-4.5 11.1.2 23.6 9.5 31.2zM328 36.8c5.1-12.8-1.6-27.4-15-30.5C294.7 2.2 275.6 0 256 0s-38.7 2.2-57 6.4c-13.5 3-20.2 17.6-15 30.4l30.3 75.8c4.5 11.3 16.8 17.2 29 16c4.2-.4 8.4-.6 12.7-.6s8.6.2 12.7.6c12.1 1.2 24.4-4.7 29-16zM65.5 85c-9.1 10.2-6.3 25.8 5.1 33.4l67.6 45.1c10.3 6.9 24.1 4.6 33.4-3.6c1.3-1.1 2.6-2.3 4-3.3c9.3-7.5 13.9-20.1 9.5-31.2l-30.7-76.2c-5.2-12.9-20.3-18.8-32.1-11.6c-21.2 13-40.3 29-56.8 47.4m314 137.1c.9 3.3 1.7 6.6 2.3 10c2.5 13 13 23.9 26.2 23.9h80c13.3 0 24.1-10.8 22.9-24c-2.5-27.2-9.3-53.2-19.7-77.3c-5.5-12.9-21.4-16.6-33.1-8.9l-68.6 45.7c-9.8 6.5-13.2 19.2-10 30.5zM53.9 145.8c-11.6-7.8-27.6-4-33.1 8.9C10.4 178.8 3.6 204.8 1.1 232c-1.2 13.2 9.6 24 22.9 24h80c13.3 0 23.8-10.8 26.2-23.9c.6-3.4 1.4-6.7 2.3-10c3.1-11.4-.2-24-10-30.5zM104 288H24c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24m304 0c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zM24 416c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zm384 0c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24zM272 192c0-8.8-7.2-16-16-16s-16 7.2-16 16v272c0 8.8 7.2 16 16 16s16-7.2 16-16zm-64 32c0-8.8-7.2-16-16-16s-16 7.2-16 16v240c0 8.8 7.2 16 16 16s16-7.2 16-16zm128 0c0-8.8-7.2-16-16-16s-16 7.2-16 16v240c0 8.8 7.2 16 16 16s16-7.2 16-16z"
+                      stroke-width="10"
+                      stroke="#a11754"></path>
+                  </svg>
+                </div>
+                <div class="category-info">
+                  <h4 class="stats-title">Origin</h4>
+                  <p class="info" data-key="origin_character">Seattle, WA</p>
+                </div>
+              </div>
+              <div class="character-origin" id="job">
+                <div class="icon">
+                  <svg
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M16 0H13L3.70711 9.29289L2.20711 7.79289L0.792893 9.20711L3.08579 11.5L1.5835 13.0023C1.55586 13.0008 1.52802 13 1.5 13C0.671573 13 0 13.6716 0 14.5C0 15.3284 0.671573 16 1.5 16C2.32843 16 3 15.3284 3 14.5C3 14.472 2.99923 14.4441 2.99771 14.4165L4.5 12.9142L6.79289 15.2071L8.20711 13.7929L6.70711 12.2929L16 3V0Z"
+                        fill="#e2076e"></path>
+                    </g></svg
+                  >
+                </div>
+                <div class="category-info">
+                  <h4 class="stats-title">JOB</h4>
+                  <p class="info" data-key="job_character">Marine Technician</p>
+                </div>
+              </div>
+              <div class="character-origin" id="id_crawler">
+                <div class="icon">
+                  <svg
+                    fill="#e2076e"
+                    height="245px"
+                    width="245px"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 512 512"
+                    xml:space="preserve"
+                    stroke="#e2076e"
+                    stroke-width="5.12"
+                    ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke="#CCCCCC"
+                      stroke-width="1.024"></g><g id="SVGRepo_iconCarrier">
+                      <g>
+                        <g>
+                          <g>
+                            <path
+                              d="M416,234.667h42.667c5.888,0,10.667-4.779,10.667-10.667s-4.779-10.667-10.667-10.667H416 c-5.888,0-10.667,4.779-10.667,10.667S410.112,234.667,416,234.667z"
+                            ></path>
+                            <path
+                              d="M458.667,341.333h-85.333c-5.888,0-10.667,4.779-10.667,10.667c0,5.888,4.779,10.667,10.667,10.667h85.333 c5.888,0,10.667-4.779,10.667-10.667C469.333,346.112,464.555,341.333,458.667,341.333z"
+                            ></path>
+                            <path
+                              d="M309.333,234.667h64c5.888,0,10.667-4.779,10.667-10.667s-4.779-10.667-10.667-10.667h-64 c-5.888,0-10.667,4.779-10.667,10.667S303.445,234.667,309.333,234.667z"
+                            ></path>
+                            <path
+                              d="M53.333,405.333l213.333-0.064c5.888,0,10.667-4.779,10.667-10.667c0-26.752-18.112-49.941-44.053-56.427l-32.021-8 l-1.344-5.355c8.32-9.173,14.208-20.864,16.661-33.024c5.675-2.923,9.813-8.533,10.667-15.253l2.325-18.56 c0.704-5.611-1.045-11.285-4.757-15.552c-1.152-1.323-2.475-2.475-3.904-3.435l0.555-11.307l1.963-1.963 c5.504-5.845,12.949-18.325,1.152-36.331c-5.589-8.533-17.109-18.731-40.171-18.731c-6.784,0-22.123,0-37.035,9.323 c-43.904,1.557-49.067,25.216-49.067,43.072c0,3.52,0.64,10.112,1.237,15.616c-1.579,1.003-3.029,2.219-4.288,3.648 c-3.776,4.288-5.547,9.984-4.843,15.68l2.325,18.56c0.875,6.955,5.291,12.715,11.797,15.552 c2.432,11.627,7.979,22.891,15.765,31.829l-1.557,6.272l-32.021,8c-25.941,6.485-44.053,29.696-44.053,56.448 c0,2.837,1.109,5.568,3.115,7.552C47.787,404.203,50.496,405.333,53.333,405.333z M91.861,358.891l38.229-9.557 c3.819-0.939,6.827-3.925,7.765-7.744l4.544-18.197c0.96-3.755-0.235-7.723-3.051-10.368c-8.299-7.787-13.803-19.2-14.699-30.528 c-0.448-5.547-5.184-8.597-10.752-8.597l-2.731-16.981c3.072,0,5.973-1.301,8-3.605c2.027-2.283,2.965-5.333,2.581-8.384 c-0.811-6.443-2.112-18.091-2.112-21.845c0-11.051,0-21.483,31.168-21.803c2.176-0.021,4.331-0.704,6.101-1.984 c10.176-7.275,21.845-7.275,27.456-7.275c16.384,0,20.864,6.848,22.336,9.088c4.352,6.635,2.56,8.512,1.387,9.792l-4.651,4.629 c-1.877,1.877-2.987,4.395-3.115,7.04l-1.131,23.211c-0.128,2.901,0.235,4.928,2.219,7.04c2.005,2.112,4.075,2.539,6.976,2.56 l-1.387,17.344c-5.568,0-10.197,4.267-10.645,9.813c-0.896,11.499-6.805,23.424-15.381,31.104 c-2.944,2.645-4.181,6.699-3.221,10.539l4.373,17.429c0.96,3.797,3.947,6.805,7.765,7.744l38.229,9.557 c12.843,3.221,22.656,12.907,26.325,25.088l-188.885-0.021C69.248,371.819,79.061,362.133,91.861,358.891z"
+                            ></path>
+                            <path
+                              d="M309.333,298.667h149.333c5.888,0,10.667-4.779,10.667-10.667s-4.779-10.667-10.667-10.667H309.333 c-5.888,0-10.667,4.779-10.667,10.667S303.445,298.667,309.333,298.667z"
+                            ></path>
+                            <path
+                              d="M458.667,64H53.333C23.936,64,0,87.936,0,117.333v277.333C0,424.064,23.936,448,53.333,448h405.333 C488.064,448,512,424.064,512,394.667V117.333C512,87.936,488.064,64,458.667,64z M490.667,394.667c0,17.643-14.357,32-32,32 H53.333c-17.643,0-32-14.357-32-32V149.333h469.333V394.667z M490.667,128H21.333v-10.667c0-17.643,14.357-32,32-32h405.333 c17.643,0,32,14.357,32,32V128z"
+                            ></path>
+                            <path
+                              d="M309.333,362.667h21.333c5.888,0,10.667-4.779,10.667-10.667c0-5.888-4.779-10.667-10.667-10.667h-21.333 c-5.888,0-10.667,4.779-10.667,10.667C298.667,357.888,303.445,362.667,309.333,362.667z"
+                            ></path>
+                          </g>
+                        </g>
+                      </g>
+                    </g></svg
+                  >
+                </div>
+                <div class="category-info">
+                  <h4 class="stats-title">CRAWLER #</h4>
+                  <p class="info" data-key="id_character">4.119</p>
+                </div>
+              </div>
+            </div>
+            <div class="character-description">
+              <h4 class="stats-title">ABOUT CARL</h4>
+              <p class="info" data-key="desc_character">
+                Carl is the titular protagonist of Dungeon Crawler Carl. A
+                former coast guardsman, Carl and his ex-girlfriend's cat are now
+                fan-favorite crawlers on the Syndicate gameshow, Dungeon Crawler
+                World: Earth.
+              </p>
+            </div>
+          </div>
+          <div class="character-image">
+            <img src="/public/character/maggie.png" alt="" />
+          </div>
         </div>
-        <!-- <div class="stat-container">
-          <div class="stat-card" id="crawler-info">
-            <span class="stat-title"> CRAWLER INFO </span>
-            {
-              crawlerInfo.map((info, index) => {
-                return (
-                  <div class="stat-value">
-                    <>
-                      <span>{info.label}</span>
-                      <p data-key={info.key}>
-                        :{" "}
-                        {Object.values(characters[0].crawler_info ?? {})[index]}
-                      </p>
-                    </>
-                  </div>
-                );
-              })
-            }
-          </div>
-
-          <div class="stat-card" id="physical-traits">
-            <span class="stat-title"> PHYSICAL TRAITS </span>
-            {
-              physicalTraits.map((trait, index) => {
-                return (
-                  <div class="stat-value">
-                    <>
-                      <span>{trait.label}</span>
-                      <p data-key={trait.key}>
-                        :{" "}
-                        {
-                          Object.values(characters[0].physical_traits ?? {})[
-                            index
-                          ]
-                        }
-                      </p>
-                    </>
-                  </div>
-                );
-              })
-            }
-          </div>
-
-          <div class="stat-card">
-            <span class="stat-title"> QUOTES </span>
-            {
-              characters[0].quotes?.map((quote) => {
-                return <div class="character-quote">"{quote}"</div>;
-              })
-            }
-          </div>
-        </div> -->
       </div>
+      <style>
+        h2 {
+          animation: breathe ease forwards;
+          animation-timeline: --section;
+          animation-range: entry 40%;
+        }
+        .selection-title h2 {
+          font-family: "Bebas Neue", sans-serif;
+          font-size: var(--font-size-title);
+          line-height: 0.9;
+          font-weight: 900;
+          text-transform: uppercase;
+          color: #fff;
+        }
 
-      <div class="character-desc">
-        <h3>Character Description</h3>
-        <p>
-          Carl is the titular protagonist of Dungeon Crawler Carl. A former
-          coast guardsman, Carl and his ex-girlfriend's cat are now fan-favorite
-          crawlers on the Syndicate gameshow, Dungeon Crawler World: Earth.
-        </p>
-      </div>
+        .selection-title h2 span {
+          display: block;
+          padding-left: 5rem;
+          color: #00000000;
+          -webkit-text-stroke: 2px #c90f4d;
+        }
+
+        .character {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          overflow: hidden;
+          z-index: 1;
+        }
+
+        .character-info-name {
+          font-family: "Bebas Neue", sans-serif;
+          grid-column: 1/4;
+          grid-row: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          line-height: 0.9;
+        }
+
+        .character-info-name .section-title {
+          font-size: var(--font-size-subtitle);
+          text-transform: uppercase;
+          color: #fff;
+          font-weight: 900;
+        }
+
+        .character-info-name span {
+          display: block;
+          color: #d40856ef;
+          font-size: var(--font-size-glow);
+          font-weight: 900;
+        }
+
+        .character-info {
+          position: relative;
+          grid-column: 1/4;
+          grid-row: 2/4;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 0.5rem;
+          background: #1a080f57;
+          height: 100%;
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border: 2px solid #d4085688;
+          max-width: 350px;
+          border-radius: 10px;
+        }
+
+        .info {
+          font-size: var(--font-size-text);
+          color: #e0e0e0;
+        }
+
+        .stats-title {
+          font-size: var(--font-size-glow);
+          font-weight: 900;
+          color: #d40856ef;
+        }
+
+        .character::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 300px;
+          background-image: url("src/assets/layered-peaks-top2.svg");
+          background-repeat: no-repeat;
+          background-position: top;
+          background-size: cover;
+          filter: drop-shadow(0 2px 10px rgb(1, 1, 1));
+          pointer-events: none;
+          z-index: 10;
+        }
+
+        .character::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          background-image: url("src/assets/layered-peaks-bottom2.svg");
+          background-repeat: no-repeat;
+          background-position: bottom;
+          background-size: cover;
+          filter: drop-shadow(0 2px 10px rgb(1, 1, 1));
+          pointer-events: none;
+          z-index: 10;
+        }
+
+        .character-description {
+          font-family: "Bebas Neue", sans-serif;
+          grid-column: 1/4;
+          grid-row: 4/6;
+          padding: 1rem;
+          border: 2px solid #bb004b7a;
+          background-color: #1a080f57;
+          border-radius: 0.75rem;
+          max-width: 350px;
+          height: max-content;
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+        }
+
+        .character-description .info {
+          line-height: 1.6;
+        }
+
+        .character-description .stats-title {
+          margin-bottom: 0.5rem;
+        }
+
+        .character-container {
+          display: grid;
+          grid-template-columns: 42% 58%;
+          min-height: 100vh;
+          gap: 2rem;
+          border: 3px solid #bb004b81;
+          background-color: #bb004b09;
+          width: 1600px;
+          margin: 2rem auto;
+          align-items: center;
+          transform: skew(-3deg);
+        }
+
+        .selection-character {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          /* height: 80%; */
+          width: 100%;
+          gap: 2rem;
+          padding: 1.5rem;
+          opacity: 0;
+          animation: slideA ease forwards;
+          animation-timeline: --section;
+          animation-range: entry 40%;
+        }
+
+        .info-character {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          /* height: max-content;R */
+          height: 80vh;
+          opacity: 0;
+          animation: slideB ease forwards;
+          animation-timeline: --section;
+          animation-range: entry 40%;
+        }
+
+        .character-origin {
+          font-family: "Bebas Neue", sans-serif;
+          font-weight: 600;
+          display: flex;
+          height: 100%;
+          max-width: 350px;
+          border-bottom: 2px solid #d4085688;
+          padding: 0.5rem;
+        }
+
+        .character-origin:last-child {
+          border-bottom: none;
+        }
+
+        .character-origin .icon {
+          height: 100%;
+          padding: 0 1rem;
+          display: flex;
+          align-items: center;
+        }
+
+        svg {
+          height: 40px;
+          width: 40px;
+        }
+
+        .category-info {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          justify-content: center;
+        }
+
+        .character-main {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        }
+
+        .character-main::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          min-height: 100vh;
+          border-left: 3px solid #bb004b81;
+        }
+
+        .character-bg {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(9, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          justify-content: center;
+          align-items: center;
+          padding: 1.5rem;
+          width: 95%;
+          height: 100%;
+        }
+
+        .character-image::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: url("/src/assets/paint.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+        }
+
+        .character-image {
+          position: relative;
+          grid-column: 4/10;
+          grid-row: 1/4;
+          height: 100%;
+          transform: scale(1.15);
+          display: flex;
+          justify-content: center;
+          margin-right: 1rem;
+          z-index: -10;
+        }
+
+        .character-stats {
+          grid-column: 1/6;
+          grid-row: 1/4;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(5, 1fr);
+          height: 100%;
+          /* transform: skew(-3deg); */
+          margin-left: 2rem;
+          gap: 1rem;
+        }
+
+        .character-image img {
+          filter: drop-shadow(10px 2px 0px #bb004b);
+          height: 100%;
+          object-position: right;
+          object-fit: contain;
+          transition:
+            opacity 0.35s ease,
+            transform 0.35s ease;
+          opacity: 1;
+        }
+
+        .stat-container {
+          position: absolute;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          gap: 1rem;
+          width: 100%;
+          height: 90%;
+          margin-top: 2rem;
+        }
+
+        .stat-card {
+          background: rgb(17, 15, 15);
+          font-family: "Inter", sans-serif;
+
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 0px 0px 18px 18px;
+          padding: 1rem 1.2rem;
+          backdrop-filter: blur(10px);
+          box-shadow: 0px 0px 13px 3px rgb(4 4 4 / 99%);
+          transition:
+            transform 0.3s ease,
+            border-color 0.3s ease;
+
+          overflow: hidden;
+        }
+
+        .stat-card:nth-child(1) {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .stat-card:nth-child(2) {
+          grid-column: 3;
+          grid-row: 2;
+        }
+        .stat-card:nth-child(3) {
+          grid-column: 1;
+          grid-row: 3;
+        }
+        .stat-card:nth-child(4) {
+          grid-column: 3;
+          grid-row: 1;
+        }
+
+        .character-grid-selection {
+          display: grid;
+          grid-template-columns: repeat(3, 150px);
+          grid-template-rows: repeat(3, 170px);
+          gap: 0.5rem;
+          /* transform: skew(-3deg); */
+        }
+
+        .character-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          background-color: #1d161981;
+          border: 1px solid rgba(54, 52, 52, 0.856);
+          border-radius: 12px;
+          transition:
+            transform 0.3s ease,
+            border-color 0.3s ease;
+          overflow: hidden;
+          cursor: pointer;
+          z-index: 10;
+        }
+
+        .character-card::after {
+          content: "";
+          position: absolute;
+          inset: -4px;
+          background: #e22356;
+          filter: blur(7px);
+          opacity: 0;
+          transition: opacity 0.25s ease;
+          z-index: -1;
+        }
+
+        .character-card.active::after,
+        .character-card:hover::after {
+          opacity: 1;
+        }
+
+        .character-card:hover {
+          transform: translateY(-4px);
+        }
+
+        .character-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top;
+          pointer-events: none;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+        }
+
+        .character-name {
+          color: #f2f2f2;
+          padding: 0.5rem 0;
+          font-family: "Inter", sans-serif;
+          font-weight: 600;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0.9);
+          backdrop-filter: blur(6px);
+          box-shadow: 0px 0px 8px 6px rgb(0 0 0 / 75%);
+          pointer-events: none;
+        }
+
+        .character-desc p,
+        .character-main .title-section,
+        .info {
+          transition:
+            opacity 0.25s ease,
+            transform 0.25s ease;
+
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .character-bg img.changing {
+          opacity: 0;
+          transform: scale(0.92);
+        }
+
+        .info.text-changing,
+        .character-desc p.text-changing {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+
+        @media (max-width: 1200px) {
+          .character {
+            height: auto;
+            min-height: 100vh;
+            padding: 3.5rem 0;
+          }
+
+          .selection-character {
+            height: auto;
+          }
+
+          .character-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: auto; /* ✅ Que crezca con contenido */
+            width: 100% !important;
+            transform: skew(0);
+            border: none;
+          }
+
+          .info-character {
+            height: auto;
+            min-height: 50vh; /* ✅ Dale altura mínima */
+            width: 100%;
+          }
+
+          .character-image {
+            height: auto;
+            min-height: 50vh;
+            max-height: 80vh;
+            width: 100%;
+            transform: scale(1);
+          }
+
+          .character-main {
+            height: 100%; /* ✅ Ahora hereda de info-character correctamente */
+          }
+
+          .character-main::before {
+            border: none;
+          }
+
+          .character-bg {
+            height: 100%; /* ✅ Importante */
+            width: 100%;
+          }
+
+          .character-grid-selection {
+            grid-template-columns: repeat(3, 160px);
+            grid-template-rows: repeat(3, 160px);
+          }
+        }
+
+        @media (max-width: 660px) {
+          .character-container {
+            gap: 1rem;
+            border: none;
+          }
+          .character-grid-selection {
+            grid-template-columns: repeat(3, 140px);
+            grid-template-rows: repeat(3, 140px);
+          }
+
+          .character-stats {
+            grid-column: 1 / 6;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            margin-left: 0.7rem;
+          }
+
+          svg {
+            height: 30px;
+            width: 30px;
+          }
+
+          .character-bg {
+            width: 100%;
+            padding: 1rem;
+          }
+
+          .character-main::before {
+            border: none;
+            display: none;
+          }
+        }
+
+        @media (max-width: 500px) {
+          /* .character {
+            height: 70%;
+          } */
+
+          .character-main {
+            min-height: auto; /* ✅ Deja que se adapte */
+            height: auto;
+          }
+
+          .character-stats {
+            grid-column: 1 / 10;
+            /* grid-template-rows: repeat(5, 1fr); */
+          }
+
+          .character-info-name {
+            justify-content: end;
+          }
+
+          .character-info-name .section-title {
+            font-size: 1.6rem;
+            filter: drop-shadow(1px 2px 3px #000000);
+          }
+
+          .character-info-name span {
+            filter: drop-shadow(1px 2px 1px #000000);
+          }
+
+          .character-image {
+            height: auto; /* ✅ No fuerces height */
+            max-height: 60vh;
+            grid-column: 1 / 10;
+            grid-row: 1 / 4;
+            transform: scale(1);
+          }
+
+          .character-image::after {
+            background-position: top;
+          }
+
+          .character-image img {
+            object-position: top;
+          }
+
+          .category-info {
+            height: auto;
+            align-items: center;
+          }
+
+          .category-info .info {
+            font-size: 11px;
+            text-align: center;
+          }
+
+          .character-info-name {
+            grid-column: 1 / 3;
+            grid-row: 2;
+          }
+
+          .selection-character {
+            padding: 0rem;
+          }
+
+          svg {
+            height: 20px;
+            width: 20px;
+          }
+
+          .selection-title h2 {
+            font-size: 2.5rem;
+          }
+
+          .character-info {
+            flex-direction: row;
+            grid-column: 1 / 4;
+            grid-row: 3 / 4;
+            gap: 0.5rem;
+            max-width: none;
+            padding: 0.5rem;
+            /* height: 90px; */
+            min-height: 60px;
+            /* display: none; */
+          }
+
+          .character-origin {
+            width: 33%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: none;
+          }
+
+          .character-origin .icon {
+            height: auto;
+          }
+
+          .character-description {
+            grid-column: 1 / 4;
+            grid-row: 4 / 6;
+            min-height: 80px;
+            height: max-content;
+            max-width: none;
+          }
+
+          .character-grid-selection {
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+          }
+
+          .info-character {
+            min-height: auto; /* ✅ Flexible en móvil pequeño */
+          }
+
+          .character-main {
+            min-height: auto;
+          }
+
+          .character-bg {
+            min-height: auto;
+            height: auto;
+          }
+
+          .character-image {
+            min-height: 60vh; /* ✅ Ajusta a gusto */
+            height: auto;
+          }
+        }
+      </style>
     </div>
-    <style>
-      .character {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .character-container {
-        position: relative;
-        width: min(1600px, 100%);
-        padding: 0 20px;
-        box-sizing: border-box;
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .selection-character {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        height: 100%;
-        width: 100%;
-        gap: 4rem;
-      }
-
-      .info-character {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        height: 100%;
-      }
-
-      .character-main {
-        flex: 4;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-      }
-
-      .character::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-
-        background: #bc1952;
-
-        clip-path: polygon(0 0, 60% 0, 35% 100%, 0 100%);
-        z-index: -1;
-      }
-
-      .character-bg {
-        position: relative;
-        height: 500px;
-        display: flex;
-        width: 300px;
-        overflow: hidden;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .character-bg::before {
-        position: absolute;
-        content: "";
-        background-color: #96053d;
-        height: 150%;
-        width: 150px;
-        overflow: hidden;
-        transform: rotate(50deg);
-        /* width: 110%;
-      height: 110%; */
-        /* Set the size of each grid square */
-        background-size: 25px 25px;
-
-        /* Draw vertical and horizontal lines */
-        background-image: radial-gradient(circle, #000000 2px, transparent 1px);
-        /* z-index: -1; */
-      }
-
-      .character-bg img {
-        filter: drop-shadow(10px 2px 0px #96053d);
-        width: 100%;
-        height: 100%;
-        object-position: center;
-        object-fit: contain;
-
-        transition:
-          opacity 0.35s ease,
-          transform 0.35s ease;
-
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      .stat-container {
-        position: absolute;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        gap: 1rem;
-        width: 100%;
-        height: 90%;
-        margin-top: 2rem;
-      }
-
-      .stat-card {
-        background: rgb(17, 15, 15);
-        font-family: "Inter", sans-serif;
-
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 0px 0px 18px 18px;
-        padding: 1rem 1.2rem;
-        backdrop-filter: blur(10px);
-        box-shadow: 0px 0px 13px 3px rgb(4 4 4 / 99%);
-        transition:
-          transform 0.3s ease,
-          border-color 0.3s ease;
-
-        overflow: hidden;
-      }
-
-      .stat-card:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .stat-card:nth-child(2) {
-        grid-column: 3;
-        grid-row: 2;
-      }
-      .stat-card:nth-child(3) {
-        grid-column: 1;
-        grid-row: 3;
-      }
-      .stat-card:nth-child(4) {
-        grid-column: 3;
-        grid-row: 1;
-      }
-
-      .stat-title {
-        display: block;
-
-        font-size: 0.8rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-
-        color: rgba(255, 255, 255, 0.55);
-
-        margin-bottom: 0.5rem;
-      }
-
-      .stat-value {
-        font-size: 0.9rem;
-        font-weight: 500;
-
-        color: #f2f2f2;
-      }
-
-      .stat-value span {
-        font-weight: 600;
-        color: rgba(244, 30, 94, 0.995);
-      }
-
-      .stat-value p {
-        display: inline;
-      }
-
-      .stat-card::before {
-        content: "";
-        position: absolute;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 2px;
-
-        background: linear-gradient(to right, #f2c14d, #d64d8b);
-      }
-
-      .quote-text {
-        color: #f2f2f2;
-        transform: skew(-9deg);
-      }
-
-      .character-quote {
-        position: relative;
-
-        width: fit-content;
-        margin-top: 0.75rem;
-        font-size: 1rem;
-        font-style: italic;
-
-        color: rgba(255, 255, 255, 0.75);
-
-        padding-left: 1rem;
-
-        border-left: 3px solid #e22356;
-      }
-
-      .character-desc {
-        /* flex: 1; */
-        font-family: "Inter", sans-serif;
-        font-size: 1.1rem;
-        background-color: #50041d4e;
-        color: #efe8e8;
-        width: 100%;
-        height: 100%;
-        border: 1px solid rgba(99, 96, 96, 0.244);
-        padding: 1rem;
-        border-radius: 14px;
-      }
-
-      .character-desc p {
-      }
-
-      .character-desc h3 {
-        font-family: "Bebas Neue", sans-serif;
-        font-size: 1.4rem;
-        font-weight: 800;
-        margin-bottom: 0.75rem;
-        color: #e22356;
-      }
-
-      .character-grid-selection {
-        display: grid;
-        grid-template-columns: repeat(4, 170px);
-        grid-template-rows: repeat(3, 200px);
-        gap: 0.5rem;
-      }
-
-      .character-card {
-        position: relative;
-        background-color: #141313f2;
-        border: 3px solid rgba(1, 1, 1, 0.273);
-        border-radius: 12px;
-
-        transition:
-          transform 0.3s ease,
-          border-color 0.3s ease;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        /* box-shadow: 2px 4px 0px 0px rgb(16, 15, 15); */
-        z-index: 10;
-      }
-
-      .character-card::after {
-        content: "";
-        position: absolute;
-        inset: -4px;
-        background: #e22356;
-        filter: blur(7px);
-        opacity: 0;
-        transition: opacity 0.25s ease;
-        z-index: -1;
-      }
-
-      .character-card.active::after {
-        /* border-color: #e22356;
-        background-color: #b0083457;
-        box-shadow: 2px 4px 9px 8px #79132d; */
-        opacity: 1;
-      }
-
-      .character-card:hover::after {
-        opacity: 1;
-      }
-
-      .character-card:hover {
-        /* border-color: #ff0044aa; */
-        transform: translateY(-4px);
-      }
-
-      .character-card::before {
-        position: absolute;
-        content: "";
-
-        inset: 0;
-        width: 100%;
-        height: 150%;
-
-        background-image:
-          linear-gradient(to right, #ffffff36 1px, transparent 1px),
-          linear-gradient(to bottom, #ffffff47 1px, transparent 1px);
-
-        background-size: 50px 50px;
-        background-position: center;
-
-        transform-origin: center center;
-        transform: perspective(700px) rotateX(70deg);
-
-        z-index: -1;
-      }
-
-      .character-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        z-index: 10;
-        pointer-events: none;
-        transform: translateZ(0);
-        backface-visibility: hidden;
-      }
-
-      .character-desc p,
-      .character-main .title-section {
-        transition:
-          opacity 0.25s ease,
-          transform 0.25s ease;
-
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .character-bg img.changing {
-        opacity: 0;
-        transform: scale(0.92);
-      }
-
-      .character-main .title-section.text-changing,
-      .character-desc p.text-changing {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      /* 
-    .stat-card:nth-child(even) {
-      transform: rotate(1deg);
-    }
-
-    .stat-card:nth-child(odd) {
-      transform: rotate(-1deg);
-    } */
-    </style>
   </div>
-</section>
-<script define:vars={{ characters, crawlerInfo, physicalTraits }}>
-  //   console.log(characters);
-  let active = document.querySelector(".character-card.active");
+  <script define:vars={{ characters, crawlerInfo, physicalTraits }}>
+    let active = document.querySelector(".character-card.active");
 
-  const titleSection = document.querySelector(".character-main .title-section");
-  const characterBg = document.querySelector(".character-bg img");
-  const characterDesc = document.querySelector(".character-desc p");
-  //   const characterInfo = document.querySelectorAll("#crawler-info");
+    const titleSection = document.querySelector(
+      ".section-title[data-key='name_character']",
+    );
+    const titleAliase = document.querySelector(
+      ".character-info-name span[data-key='aliase_character']",
+    );
+    const characterBg = document.querySelector(".character-image img");
+    const characterDesc = document.querySelector(".character-description p");
+    const characterOrigin = document.querySelector("#origin p[data-key]");
+    const characterJob = document.querySelector("#job p[data-key]");
+    const characterId = document.querySelector("#id_crawler p[data-key]");
 
-  const characterGridSelection = document.querySelector(
-    ".character-grid-selection",
-  );
-  console.log(characterGridSelection);
-  characterGridSelection.addEventListener("click", (e) => {
-    if (e.target.closest(".character-card")) {
-      const id = e.target.dataset.id;
-      const character = characters[id];
+    const characterGridSelection = document.querySelector(
+      ".character-grid-selection",
+    );
+    console.log(titleSection);
+    characterGridSelection.addEventListener("click", (e) => {
+      if (e.target.closest(".character-card")) {
+        const id = e.target.dataset.id;
+        const character = characters[id];
+        console.log(characters);
+        console.log("personaje", character);
+        characterBg.classList.add("changing");
+        characterOrigin.classList.add("text-changing");
+        characterJob.classList.add("text-changing");
+        characterId.classList.add("text-changing");
+        characterDesc.classList.add("text-changing");
 
-      document.querySelectorAll("#crawler-info p[data-key]").forEach((stat) => {
-        stat.textContent = characters[id].crawler_info[stat.dataset.key];
-        console.log(characters[id].crawler_info[stat.dataset.key]);
-      });
+        e.target.classList.add("active");
+        if (active) {
+          console.log(active);
+          active.classList.remove("active");
+        }
+        active = e.target;
 
-      document
-        .querySelectorAll("#physical-traits p[data-key]")
-        .forEach((stat) => {
-          stat.textContent = characters[id].physical_traits[stat.dataset.key];
-          console.log(characters[id].physical_traits[stat.dataset.key]);
-        });
+        setTimeout(() => {
+          characterBg.src = character.img + ".avif";
 
-      document.querySelectorAll(".character-quote").forEach((quote, index) => {
-        quote.textContent = '"' + characters[id].quotes[index] + '"';
-        console.log(characters[id].quotes[index]);
-      });
-
-      characterBg.classList.add("changing");
-      titleSection.classList.add("text-changing");
-      characterDesc.classList.add("text-changing");
-
-      e.target.classList.add("active");
-      if (active) {
-        console.log(active);
-        active.classList.remove("active");
+          titleSection.textContent = character.name;
+          titleAliase.textContent = character.aliase;
+          characterOrigin.textContent = character.crawler_info.origin;
+          characterJob.textContent = character.crawler_info.job;
+          characterId.textContent = character.crawler_info.crawler_number;
+          characterDesc.textContent = character.description;
+          characterBg.classList.remove("changing");
+          characterOrigin.classList.remove("text-changing");
+          characterJob.classList.remove("text-changing");
+          characterId.classList.remove("text-changing");
+          characterDesc.classList.remove("text-changing");
+        }, 250);
       }
-      active = e.target;
+    });
 
-      setTimeout(() => {
-        characterBg.src = character.img;
-
-        titleSection.textContent = character.name;
-
-        characterDesc.textContent = character.description;
-
-        characterBg.classList.remove("changing");
-        titleSection.classList.remove("text-changing");
-        characterDesc.classList.remove("text-changing");
-      }, 250);
-    }
-  });
-
-  characterBg.src = characters[1].img;
-
-  console.log(characterBg);
-</script>
+    characterBg.src = characters[1].img + ".avif";
+  </script>
+</section>

@@ -1,21 +1,17 @@
-/* Box sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin */
 * {
   margin: 0;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Better defaults */
 body {
   min-height: 100vh;
   line-height: 1.5;
@@ -23,7 +19,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Media defaults */
 img,
 picture,
 video,
@@ -33,7 +28,6 @@ svg {
   max-width: 100%;
 }
 
-/* Form inherit styles */
 input,
 button,
 textarea,
@@ -41,7 +35,6 @@ select {
   font: inherit;
 }
 
-/* Prevent text overflow */
 p,
 h1,
 h2,
@@ -52,32 +45,51 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* Links */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Lists */
 ul,
 ol {
   list-style: none;
   padding: 0;
 }
 
-/* Buttons */
 button {
   border: none;
   background: none;
   cursor: pointer;
 }
 
-/* Textarea resize */
 textarea {
   resize: vertical;
 }
 
-/* Root stacking context */
+section {
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  view-timeline-name: --section;
+  view-timeline-axis: block;
+}
+
+/* section:nth-of-type(2) {
+  animation: slideA linear both;
+  animation-timeline: view();
+}
+
+section:nth-of-type(3) {
+  animation: slideB linear both;
+  animation-timeline: view();
+}
+
+section:nth-of-type(4) {
+  animation: zoomIn linear both;
+  animation-timeline: view();
+} */
+
 #root,
 #__next {
   isolation: isolate;
@@ -183,4 +195,64 @@ textarea {
   transition:
     transform .2s ease,
     background .2s ease;
+}
+
+.img-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  pointer-events: none;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95) rotateX(10deg);
+    filter: blur(6px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02) rotateX(0deg);
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes breathe {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    letter-spacing: -0.05em;
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.05);
+    letter-spacing: 0.02em;
+  }
+
+  100% {
+    transform: translateY(0px) scale(1);
+    letter-spacing: 0em;
+  }
+}
+
+@keyframes slideA {
+  0% { opacity: 0; transform: translateX(-60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideB {
+  0% { opacity: 0; transform: translateX(60px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
 }
