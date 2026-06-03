@@ -15,7 +15,7 @@ export const booksContet = [
   {
     id: 2,
     title: "Carl's Doomsday Scenario",
-    image: "/books/books/book2.jpg",
+    image: "/books/book2.jpg",
     imageCover: "/books/book2-3d.png",
     bookInfo: "Second book, floor 3",
     introduction:
