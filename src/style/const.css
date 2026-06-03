@@ -4,5 +4,5 @@
     --font-size-subtitle: clamp(2rem, 3vw, 4rem);
     --font-size-glow: clamp(1rem, 2.5vw, 1.3rem);
     --font-size-text: clamp(.9rem, 2vw, 1.1rem);
-    --bg-image: url("/src/assets/Book-8-Ace-cover-scaled.png");
+    --bg-image: url("/books/Book-8-Ace-cover-scaled.png");
 }
