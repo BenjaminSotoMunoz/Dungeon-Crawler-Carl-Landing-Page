@@ -1,5 +1,7 @@
 ---
 import { characters, crawlerInfo, physicalTraits } from "../const/characters";
+import svgTop from "../assets/layered-peaks-top2.svg";
+import svgBottom from "../assets/layered-peaks-bottom2.svg";
 
 const DESKTOP_ROW_PATTERN = [3, 3, 3];
 // aquí guardaremos personajes con posición
@@ -28,7 +30,10 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
 });
 ---
 
-<section class="character">
+<section
+  class="character"
+  style={`--svg-top: url(${svgTop.src}); --svg-bottom: url(${svgBottom.src});`}
+>
   <div class="character-container section">
     <div class="selection-character">
       <div class="selection-title">
@@ -190,7 +195,7 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
             </div>
           </div>
           <div class="character-image">
-            <img src="/public/character/maggie.png" alt="" />
+            <img src="/character/maggie.png" alt="" />
           </div>
         </div>
       </div>
@@ -285,7 +290,7 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
           left: 0;
           width: 100%;
           height: 300px;
-          background-image: url("src/assets/layered-peaks-top2.svg");
+          background-image: var(--svg-top);
           background-repeat: no-repeat;
           background-position: top;
           background-size: cover;
@@ -301,7 +306,7 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
           left: 0;
           width: 100%;
           height: 50%;
-          background-image: url("src/assets/layered-peaks-bottom2.svg");
+          background-image: var(--svg-bottom);
           background-repeat: no-repeat;
           background-position: bottom;
           background-size: cover;
@@ -442,7 +447,7 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
           content: "";
           position: absolute;
           inset: 0;
-          background-image: url("/src/assets/paint.png");
+          background-image: url("/books/paint.png");
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;

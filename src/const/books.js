@@ -2,8 +2,8 @@ export const booksContet = [
   {
     id: 1,
     title: "Dungeon Crawler Carl",
-    image: "/src/assets/book.jpg",
-    imageCover: "/src/assets/book1-3d.png",
+    image: "/books/book.jpg",
+    imageCover: "/books/book1-3d.png",
     bookInfo: "First book, floor 1-2",
     introduction:
       "An alien invasion forces Carl and his cat Donut into a deadly underground game show. Using a missile launcher and charisma, they survive the first levels and become instant celebrity stars.",
@@ -15,8 +15,8 @@ export const booksContet = [
   {
     id: 2,
     title: "Carl's Doomsday Scenario",
-    image: "/src/assets/book2.jpg",
-    imageCover: "/src/assets/book2-3d.png",
+    image: "/books/book2.jpg",
+    imageCover: "/book2-3d.png",
     bookInfo: "Second book, floor 3",
     introduction:
       "Carl and Donut conquer the castle-themed 3rd floor while dealing with corporate sponsorship plots. They protect their allies and defeat a massive, multi-headed boss to survive.",
@@ -28,8 +28,8 @@ export const booksContet = [
   {
     id: 3,
     title: "The Dungeon Anarchist's Cook Book",
-    image: "/src/assets/book3.jpg",
-    imageCover: "/src/assets/book3-3d.png",
+    image: "/books/book3.jpg",
+    imageCover: "/books/book3-3d.png",
     bookInfo: "Third book, floor 4",
     introduction:
       "Carl and Donut navigate the deadly 4th floor, an iron tangle train network run by killer locomotives. Carl obtains the 'Anarchist's Cookbook'.",
@@ -41,8 +41,8 @@ export const booksContet = [
   {
     id: 4,
     title: "The Gate Of The Feral Gods",
-    image: "/src/assets/book4.jpg",
-    imageCover: "/src/assets/book4-3d.png",
+    image: "/books/book4.jpg",
+    imageCover: "/books/book4-3d.png",
     bookInfo: "Fourth book, floor 5",
     introduction:
       "Carl and Donut break the 5th floor's rules using chaotic alchemy and an ancient gate. Their actions destroy rival armies, sabotage alien sponsors, and spark a rebellion against the system.",
