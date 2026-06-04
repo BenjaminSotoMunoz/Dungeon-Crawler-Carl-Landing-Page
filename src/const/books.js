@@ -51,15 +51,6 @@ export const booksContet = [
     ebook: "",
     book: "",
   },
-  // {
-  //   id: 5,
-  //   title: "The Bucher's Masquerade",
-  //   image: "/src/assets/book5.jpg",
-  //   bookInfo: "Fifth book, floor 6",
-  //   description: "",
-  //   ebook: "",
-  //   book: "",
-  // },
 ];
 
 export const connections = [
