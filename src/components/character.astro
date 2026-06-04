@@ -681,6 +681,14 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
           }
         }
 
+        @media (max-width: 768px) {
+          h2,
+          .selection-character,
+          .info-character {
+            animation-timeline: auto !important;
+          }
+        }
+
         @media (max-width: 660px) {
           .character-container {
             gap: 1rem;
