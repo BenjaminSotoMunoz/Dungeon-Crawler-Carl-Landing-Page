@@ -63,6 +63,7 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
                     />
                     <img
                       src={`${character.selection_img}.png`}
+                      loading="lazy"
                       alt={character.name}
                     />
                   </picture>
@@ -195,7 +196,7 @@ DESKTOP_ROW_PATTERN.forEach((cols, rowIndex) => {
             </div>
           </div>
           <div class="character-image">
-            <img src="/character/maggie.png" alt="" />
+            <img src="/character/maggie.avif" alt="" loading="lazy" />
           </div>
         </div>
       </div>

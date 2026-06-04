@@ -3,6 +3,7 @@ import Hero from "../components/Hero.astro";
 import Character from "../components/character.astro";
 import Books from "../components/books.astro";
 import CharacterNew from "../components/character_new.astro";
+import Analytics from "@vercel/analytics/astro";
 import "../style/main.css";
 import "../style/const.css";
 ---
@@ -15,6 +16,7 @@ import "../style/const.css";
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="stylesheet" href={`${constCss}`} />
     <link rel="stylesheet" href={`${mainCss}`} /> -->
+    <Analytics />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
   </head>
