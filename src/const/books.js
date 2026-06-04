@@ -2,7 +2,7 @@ export const booksContet = [
   {
     id: 1,
     title: "Dungeon Crawler Carl",
-    image: "/books/book.jpg",
+    image: "/books/book.avif",
     imageCover: "/books/book1-3d.png",
     bookInfo: "First book, floor 1-2",
     introduction:
@@ -15,7 +15,7 @@ export const booksContet = [
   {
     id: 2,
     title: "Carl's Doomsday Scenario",
-    image: "/books/book2.jpg",
+    image: "/books/book2.avif",
     imageCover: "/books/book2-3d.png",
     bookInfo: "Second book, floor 3",
     introduction:
@@ -28,7 +28,7 @@ export const booksContet = [
   {
     id: 3,
     title: "The Dungeon Anarchist's Cook Book",
-    image: "/books/book3.jpg",
+    image: "/books/book3.avif",
     imageCover: "/books/book3-3d.png",
     bookInfo: "Third book, floor 4",
     introduction:
@@ -41,7 +41,7 @@ export const booksContet = [
   {
     id: 4,
     title: "The Gate Of The Feral Gods",
-    image: "/books/book4.jpg",
+    image: "/books/book4.avif",
     imageCover: "/books/book4-3d.png",
     bookInfo: "Fourth book, floor 5",
     introduction:

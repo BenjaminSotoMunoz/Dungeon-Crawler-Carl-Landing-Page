@@ -362,6 +362,14 @@ import svgBottom from "../assets/layered-peaks-bottom2.svg";
       transform: translateX(20px);
     }
 
+    .book-item-content {
+      content-visibility: auto;
+    }
+
+    .book-info {
+      content-visibility: auto;
+    }
+
     /* @media (max-width: 1200px) {
       .books-list {
         max-width: 420px;
@@ -463,39 +471,57 @@ import svgBottom from "../assets/layered-peaks-bottom2.svg";
     const bookInfo = document.querySelector(".book-info");
     let activeBook = document.querySelector(".book-item.active");
 
-    function changeBook(book, card) {
-      const image = book.imageCover || book.image;
+    const elementsToAnimate = {
+      title: bookContent.querySelector("h2"),
+      textInfo: bookContent.querySelector(".text-info"),
+      textDesc: bookContent.querySelector(".text-description"),
+      bookImg: document.querySelector(".book-info-img"),
+      bookInfoCard: document.querySelector(".book-info"),
+    };
 
-      // opcional: animación de salida
-      bookContent.querySelector("h2").classList.add("book-change");
-      bookContent.querySelector(".text-info").classList.add("book-change");
-      bookContent
-        .querySelector(".text-description")
-        .classList.add("book-change");
-      document.querySelector(".book-info-img").classList.add("book-change");
-      document.querySelector(".book-info").classList.add("book-change");
+    // ✅ CACHÉ EN MEMORIA (las imágenes ya cargadas viven aquí)
+    const imageCache = {};
+    const loadedImages = new Set(); // ← Trackea cuáles ya se cargaron
+
+    function preloadImages() {
+      console.log("Preloading images...");
+      booksContet.forEach((book) => {
+        const url = book.imageCover || book.image;
+        console.log("Precargando:", url);
+
+        // ✅ Solo precarga UNA VEZ
+        if (!loadedImages.has(url)) {
+          const img = new Image();
+          img.addEventListener("load", () => {
+            imageCache[book.id] = url;
+            loadedImages.add(url);
+          });
+          img.src = url;
+        } else {
+          console.log("La imagen ya estaba precargada:", url);
+        }
+      });
+    }
+
+    function changeBook(book, card) {
+      Object.values(elementsToAnimate).forEach((el) => {
+        el.classList.add("book-change");
+      });
 
       setTimeout(() => {
-        // update real
-        bookContent.querySelector("h2").textContent = book.title;
-        bookContent.querySelector(".text-info").textContent = book.introduction;
-        bookContent.querySelector(".text-description").textContent =
-          book.description;
+        // ✅ Cambia src SIN hacer nueva request
+        bookImage.src = imageCache[book.id];
 
-        bookImage.src = image;
-        bookInfo.style.setProperty("--bg-image", `url(${image})`);
+        elementsToAnimate.title.textContent = book.title;
+        elementsToAnimate.textInfo.textContent = book.introduction;
+        elementsToAnimate.textDesc.textContent = book.description;
+        bookInfo.style.setProperty("--bg-image", `url(${imageCache[book.id]})`);
 
-        bookContent.querySelector("h2").classList.remove("book-change");
-        bookContent
-          .querySelector(".text-description")
-          .classList.remove("book-change");
-        document
-          .querySelector(".book-info-img")
-          .classList.remove("book-change");
-        bookContent.querySelector(".text-info").classList.remove("book-change");
+        Object.values(elementsToAnimate).forEach((el) => {
+          el.classList.remove("book-change");
+        });
 
         activeBook.classList.remove("active");
-        document.querySelector(".book-info").classList.remove("book-change");
         card.classList.add("active");
         activeBook = card;
       }, 150);
@@ -505,20 +531,16 @@ import svgBottom from "../assets/layered-peaks-bottom2.svg";
       item.addEventListener("mouseenter", (e) => {
         const card = e.target.closest(".book-item");
         if (!card) return;
+
         const bookId = card.dataset.id;
-        const book = booksContet.find((book) => book.id == bookId);
-
+        const book = booksContet.find((b) => b.id == bookId);
         currentBookId = bookId;
-
-        if (currentBookId !== bookId) return;
 
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
-          // si ya cambió el hover, NO haces nada
           if (currentBookId !== bookId) return;
-
           changeBook(book, card);
-        }, 300);
+        }, 150);
       });
     });
 
@@ -527,16 +549,16 @@ import svgBottom from "../assets/layered-peaks-bottom2.svg";
       if (!card) return;
 
       const bookId = card.dataset.id;
-      const book = booksContet.find((book) => book.id == bookId);
-      bookContent.querySelector("h2").textContent = book.title;
-      bookContent.querySelector(".text-info").textContent = book.introduction;
-      bookContent.querySelector(".text-description").textContent =
-        book.description;
-      bookImage.src = book.imageCover ? book.imageCover : book.image;
-      bookInfo.style.setProperty(
-        "--bg-image",
-        `url(${book.image ? book.image : book.imageCover})`,
-      );
+      const book = booksContet.find((b) => b.id == bookId);
+
+      elementsToAnimate.title.textContent = book.title;
+      elementsToAnimate.textInfo.textContent = book.introduction;
+      elementsToAnimate.textDesc.textContent = book.description;
+      bookImage.src = imageCache[book.id];
+      bookInfo.style.setProperty("--bg-image", `url(${imageCache[book.id]})`);
     });
+
+    // ✅ PRECARGA AL FINAL
+    preloadImages();
   </script>
 </section>
